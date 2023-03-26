@@ -11,13 +11,15 @@ public class CanvasPaint {
 
     // 画线画笔
     private Paint linePaint = new Paint();
+
     // 填充画笔
     private Paint fillPaint = new Paint();
+
     // 文本画笔
     private TextPaint textPaint = new TextPaint();
+
     // 清空画笔
     private Paint clearPaint = new Paint();
-
     public CanvasPaint() {
         fillPaint.setAntiAlias(true);
         linePaint.setAntiAlias(true);
@@ -66,15 +68,13 @@ public class CanvasPaint {
      */
     public void lineCap(int cap) {
         switch (cap) {
-            case 0:
-                linePaint.setStrokeCap(Paint.Cap.BUTT);
-                break;
             case 1:
                 linePaint.setStrokeCap(Paint.Cap.ROUND);
                 break;
             case 2:
                 linePaint.setStrokeCap(Paint.Cap.SQUARE);
                 break;
+            case 0:
             default:
                 linePaint.setStrokeCap(Paint.Cap.BUTT);
                 break;
@@ -86,15 +86,13 @@ public class CanvasPaint {
      */
     public void lineJoin(int join) {
         switch (join) {
-            case 0:
-                linePaint.setStrokeJoin(Paint.Join.MITER);
-                break;
             case 1:
                 linePaint.setStrokeJoin(Paint.Join.ROUND);
                 break;
             case 2:
                 linePaint.setStrokeJoin(Paint.Join.BEVEL);
                 break;
+            case 0:
             default:
                 linePaint.setStrokeJoin(Paint.Join.MITER);
                 break;

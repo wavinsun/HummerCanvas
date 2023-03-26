@@ -44,11 +44,9 @@ public class CanvasTargetView extends View {
      * Canvas渲染指令集
      */
     private List<CanvasAction> actions = new ArrayList<>();
-
     public CanvasTargetView(Context context) {
         super(context);
     }
-
     public CanvasTargetView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
@@ -91,7 +89,6 @@ public class CanvasTargetView extends View {
     private float dp2px(Object v) {
         return HummerStyleUtils.convertNumber(v);
     }
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -100,7 +97,6 @@ public class CanvasTargetView extends View {
         for (CanvasAction action : actions) {
             action.draw(canvas);
         }
-
     }
 
     /**

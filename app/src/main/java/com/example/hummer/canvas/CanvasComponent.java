@@ -33,13 +33,10 @@ import java.util.Arrays;
  */
 @Component("Canvas")
 public class CanvasComponent extends HMBase<CanvasTargetView> {
-
     private static final String TAG = "CanvasComponent";
-
     public CanvasComponent(HummerContext context, JSValue jsValue, String viewID) {
         super(context, jsValue, viewID);
     }
-
     @Override
     protected CanvasTargetView createViewInstance(Context context) {
         return new CanvasTargetView(context);
@@ -308,8 +305,6 @@ public class CanvasComponent extends HMBase<CanvasTargetView> {
 
     /**
      * 设置填充样式
-     *
-     * @param fillStyle
      */
     public void setFillStyle(String fillStyle) {
         this.fillStyle = fillStyle;
