@@ -1,8 +1,3 @@
-基于 hummer（https://hummer.didi.cn/#/） 跨端框架的通用canvas组件，提供和js canvas一样的api
-===
-
-### 使用示例
-``` javascript
 const canvas = new Canvas();
 const ctx = canvas.getContext("2d");
 
@@ -47,7 +42,3 @@ ctx.font = "50px serif";
 ctx.strokeText("Hello world", 50, 190, 500);
 
 Hummer.render(canvas);
-```
-
-### 运行截图
-![运行截图](Screenshot.png "Screenshot")
