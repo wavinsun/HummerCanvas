@@ -27,6 +27,8 @@ import com.didi.hummer.render.utility.YogaResUtils;
 import com.didi.hummer.utils.JsSourceUtil;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Canvas组件
@@ -34,9 +36,11 @@ import java.util.Arrays;
 @Component("Canvas")
 public class CanvasComponent extends HMBase<CanvasTargetView> {
     private static final String TAG = "CanvasComponent";
+
     public CanvasComponent(HummerContext context, JSValue jsValue, String viewID) {
         super(context, jsValue, viewID);
     }
+
     @Override
     protected CanvasTargetView createViewInstance(Context context) {
         return new CanvasTargetView(context);
@@ -343,6 +347,11 @@ public class CanvasComponent extends HMBase<CanvasTargetView> {
     }
 
     /**
+     * 连接属性合法属性列表
+     */
+    private static final List<String> LINE_JION_LIST = Collections.unmodifiableList(Arrays.asList("round", "bevel", "miter"));
+
+    /**
      * 2个长度不为 0 的相连部分（线段、圆弧、曲线）如何连接在一起的属性
      * （长度为 0 的变形部分，其指定的末端和控制点在同一位置，会被忽略）。
      */
@@ -354,7 +363,7 @@ public class CanvasComponent extends HMBase<CanvasTargetView> {
      */
     public void setLineJoin(String lineJoin) {
         this.lineJoin = lineJoin;
-        int joinVal = Arrays.asList("round", "bevel", "miter").indexOf(lineJoin);
+        int joinVal = LINE_JION_LIST.indexOf(lineJoin);
         getView().lineJoin(joinVal);
     }
 
@@ -375,6 +384,11 @@ public class CanvasComponent extends HMBase<CanvasTargetView> {
     }
 
     /**
+     * 线段末端的属性合法取值列表
+     */
+    private static final List<String> LINE_GAP_LIST = Collections.unmodifiableList(Arrays.asList("butt", "round", "square"));
+
+    /**
      * 指定如何绘制每一条线段末端的属性。
      * 有 3 个可能的值，分别是：butt, round and square。默认值是 butt。
      */
@@ -386,7 +400,7 @@ public class CanvasComponent extends HMBase<CanvasTargetView> {
      */
     public void setLineCap(String lineCap) {
         this.lineCap = lineCap;
-        int capVal = Arrays.asList("butt", "round", "square").indexOf(this.lineCap);
+        int capVal = LINE_GAP_LIST.indexOf(this.lineCap);
         getView().lineCap(capVal);
     }
 
