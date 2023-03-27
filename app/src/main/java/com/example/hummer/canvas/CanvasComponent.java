@@ -192,6 +192,9 @@ public class CanvasComponent extends HMBase<CanvasTargetView> {
     @JsMethod("moveTo")
     public void moveTo(Object x, Object y) {
         try {
+            if (path == null) {
+                path = new Path();
+            }
             Log.i(TAG, "x:" + x);
             Log.i(TAG, "y:" + y);
             float x_px = dp2px(x);
@@ -208,6 +211,9 @@ public class CanvasComponent extends HMBase<CanvasTargetView> {
     @JsMethod("lineTo")
     public void lineTo(Object x, Object y) {
         try {
+            if (path == null) {
+                path = new Path();
+            }
             float x_px = dp2px(x);
             float y_px = dp2px(y);
             path.lineTo(x_px, y_px);

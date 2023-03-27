@@ -46,6 +46,39 @@ ctx.lineWidth = 2;
 ctx.font = "50px serif";
 ctx.strokeText("Hello world", 50, 190, 500);
 
+// draw line by d3-shape
+const lineData = [
+    [10,310],
+    [50,310],
+    [100,360],
+    [150,315],
+    [200,355],
+    [250,360],
+    [300,300]
+];
+const lineCreator = d3.line().x(function(d){return d[0]}).y(function(d){return d[1]});
+ctx.lineWidth = 2;
+ctx.strokeStyle = "blue";
+lineCreator.context(ctx);
+lineCreator(lineData);
+ctx.stroke();
+
+// draw area by d3-shape
+var areaGenerator = d3.area();
+areaGenerator.y0(400)
+var points = [
+  [0, 480],
+  [100, 500],
+  [200, 430],
+  [300, 450],
+  [400, 440],
+  [500, 480]
+];
+ctx.fillStyle = "gray";
+areaGenerator.context(ctx);
+areaGenerator(points);
+ctx.fill()
+
 Hummer.render(canvas);
 ```
 

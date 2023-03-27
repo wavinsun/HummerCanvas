@@ -6,6 +6,7 @@ import com.didi.hummer.HummerActivity;
 import com.didi.hummer.adapter.navigator.NavPage;
 import com.didi.hummer.context.HummerContext;
 import com.didi.hummer.register.HummerRegister$$app;
+import com.didi.hummer.utils.AssetsUtil;
 
 /**
  * Hummer页面
@@ -22,6 +23,10 @@ public class HummerCanvasActivity extends HummerActivity {
     protected void initHummerRegister(HummerContext context) {
         // 注册Canvas组件
         HummerRegister$$app.init(context);
+
+        // 注入d3-shape
+        context.evaluateJavaScript(AssetsUtil.readFile("d3-path@3.js"), "d3-path@3.js");
+        context.evaluateJavaScript(AssetsUtil.readFile("d3-shape@3.js"), "d3-shape@3.js");
     }
 
     @Override
